@@ -22,6 +22,28 @@ html {
 }
 
 body {
-    background: url('images/body_background.png') repeat-x 0 0;
+    background: url('/assets/dark_circles.png');
     font:100 0.625em Arial, sans-serif;
+}
+
+.wrapper {
+    margin: 12px auto 0;
+    width:960px;
+}
+
+#header {
+    background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 3px 10px #000000;
+    height: 100px;
+    margin: 15px;
+    padding: 4px;
+}
+
+.main_content {
+    background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 2px 3px 10px #000000;
 }
