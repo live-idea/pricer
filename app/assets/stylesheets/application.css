@@ -5,3 +5,23 @@
  *= require_self
  *= require_tree . 
 */
+
+* {
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+ul {
+    list-style-type:none;
+}
+
+html {
+    font-family:serif, sans-serif;
+    font-size:100%;
+}
+
+body {
+    background: url('images/body_background.png') repeat-x 0 0;
+    font:100 0.625em Arial, sans-serif;
+}
