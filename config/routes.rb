@@ -1,4 +1,8 @@
 Pricer::Application.routes.draw do
+  resources :category_groups
+
+  resources :tag_groups
+
   resources :products
 
   resources :group_tags

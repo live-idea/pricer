@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108194610) do
+ActiveRecord::Schema.define(:version => 20111108205927) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -20,13 +20,7 @@ ActiveRecord::Schema.define(:version => 20111108194610) do
     t.datetime "updated_at"
   end
 
-  create_table "categorygroups", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "group_tags", :force => true do |t|
+  create_table "category_groups", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,6 +35,12 @@ ActiveRecord::Schema.define(:version => 20111108194610) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "tag_groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
