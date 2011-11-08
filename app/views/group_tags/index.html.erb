@@ -1,0 +1,21 @@
+<h1>Listing group_tags</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @group_tags.each do |group_tag| %>
+  <tr>
+    <td><%= link_to 'Show', group_tag %></td>
+    <td><%= link_to 'Edit', edit_group_tag_path(group_tag) %></td>
+    <td><%= link_to 'Destroy', group_tag, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Group tag', new_group_tag_path %>

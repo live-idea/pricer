@@ -1,13 +1,14 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
+gem "rake", "0.8.7"
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 gem 'mysql2'
-gem 'therubyracer'
+#gem "therubyracer", "0.9.8", :platforms => [:ruby]
 
 
 # Gems used only for assets and not required
@@ -19,6 +20,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "paperclip"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
