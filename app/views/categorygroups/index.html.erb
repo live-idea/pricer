@@ -1,0 +1,21 @@
+<h1>Listing categorygroups</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categorygroups.each do |categorygroup| %>
+  <tr>
+    <td><%= link_to 'Show', categorygroup %></td>
+    <td><%= link_to 'Edit', edit_categorygroup_path(categorygroup) %></td>
+    <td><%= link_to 'Destroy', categorygroup, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Categorygroup', new_categorygroup_path %>

@@ -1,4 +1,20 @@
 Pricer::Application.routes.draw do
+
+  resources :category_groups
+
+  resources :tag_groups
+
+  resources :products
+
+  resources :group_tags
+
+  resources :categorygroups
+
+  resources :categories
+
+  get "home/index"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +64,9 @@ Pricer::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+
+  root :to => 'home#index'
+
 
   # See how all your routes lay out with "rake routes"
 
