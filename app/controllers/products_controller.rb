@@ -1,4 +1,26 @@
 class ProductsController < ApplicationController
+
+
+  def tag
+    @product = Product.find params[:id]
+    context = params[:context].to_sym
+    new_tags = @product.tag_list_on(context).push(params[:tag])
+    @product.category.tag(@product, :with => new_tags, :on => context)
+    @product.save
+    render :text=>nil
+  end
+
+  def untag
+    @product = Product.find params[:id]
+    context = params[:context].to_sym
+    new_tags = @product.tag_list_on(context)
+    new_tags.delete(params[:tag])
+    @product.set_tag_list_on(context, new_tags)
+    @product.category.tag(@product, :with => new_tags, :on => context)
+    @product.save
+    render :text=>nil
+  end
+
   # GET /products
   # GET /products.json
   def index

@@ -1,16 +1,24 @@
 Pricer::Application.routes.draw do
 
-  resources :category_groups
+  resources :products do
+    member do
+      post :tag
+      post :untag
+    end
+  end
 
-  resources :tag_groups
+  resources :tags do 
+    collection do
+      get :autocomplete
+      get :my
+    end
+  end
 
-  resources :products
+  resources :categories do
+    resources :params
+  end
 
-  resources :group_tags
-
-  resources :categorygroups
-
-  resources :categories
+  
 
   get "home/index"
 

@@ -2,5 +2,65 @@
 
 <%= render 'form' %>
 
+
+
+<%-@product.category.params.each do |p|%>
+
+<%=p.name%>
+
+<ul id="tags_<%=p.name%>">
+  <%@product.tag_list_on(p.name.to_sym).each do |t|%>
+   <li>
+     <%=t%>
+   </li>
+  <%end%>
+</ul>
+
+
+<script type="text/javascript">
+var tags = [<%=raw @product.tag_list_on(p.name.to_sym).collect{|el| "\"#{el}\""}.join(",")%>];
+    $(document).ready(function() {
+        $("#tags_<%=p.name%>").tagit({
+          removeConfirmation: true,
+          allowSpaces: true,
+          onTagAdded: function(event, tag) {
+            var t = $("span", tag)[0].innerText;
+            if ($.inArray(t, tags)>0){
+              return;
+            }else{
+              $.post("<%=tag_product_path(@product, :context=>p.name)%>", {tag: t});
+            }
+          },
+          onTagRemoved: function(event, tag) {
+              var t = $("span", tag)[0].innerText;
+               $.post("<%=untag_product_path(@product, :context=>p.name)%>", {tag: t});
+          },
+          tagSource: function( request, response ) {
+            //console.log("1");
+            $.ajax({
+                url: "/tags/autocomplete", 
+                data: { term:request.term, category:'<%=@product.category_id%>', context:'<%=p.name%>' },
+                dataType: "json",
+                success: function( data ) {
+                  response( $.map( data, function( item ) {
+                      return {label: item.name, value: item.name}
+                     }
+                    )
+                   );
+                }
+              });
+          }
+          })
+    });  
+</script>
+
+
+
+<br/><br/>
+
+<%end%>
+
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>
+
+

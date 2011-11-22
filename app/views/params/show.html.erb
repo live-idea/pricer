@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @param.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @param.category_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_param_path(@param) %> |
+<%= link_to 'Back', params_path %>
